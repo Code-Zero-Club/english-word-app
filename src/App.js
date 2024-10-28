@@ -253,7 +253,7 @@ function Quiz() {
     return () => {
       window.removeEventListener('keydown', handleKeyPress);
     };
-  }, [showAnswer]);
+  });
 
   return (
     <div className="quiz-container">
