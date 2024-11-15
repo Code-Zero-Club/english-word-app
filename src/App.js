@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import './App.css';
-import Vocabulary from './Vocabulary';
-import Home from './Home';
-import Quiz from './Quiz';
-import Favorites from './Favorites';
+import Vocabulary from './Component/Vocabulary';
+import Home from './Component/Home';
+import Quiz from './Component/Quiz';
+import Favorites from './Component/Favorites';
 
 function App() {
   const [darkMode, setDarkMode] = useState(() => {
