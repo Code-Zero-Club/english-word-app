@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 function Home() {
     return (
       <div className="home-container">
-        <h1 className="page-title">홈 페이지</h1>
+        <h1 className="page-title" >CZWA</h1>
         <nav className="navigation">
           <ul className="nav-list">
             <li className="nav-item"><Link to="/" className="nav-link">홈</Link></li>

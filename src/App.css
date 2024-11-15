@@ -1,4 +1,17 @@
-/* General Styles */
+@font-face {
+  font-family: 'PartialSansKR-Regular';
+  src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2307-1@1.1/PartialSansKR-Regular.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.page-title {
+  font-family: 'PartialSansKR-Regular', sans-serif;
+  font-size: 2.5em;
+  font-weight: bold;
+}
+ 
+
 body {
     font-family: 'Roboto', sans-serif;
     background-color: #e0f7fa;
@@ -315,3 +328,17 @@ body {
     color: #ffa726;
   }
   
+.footer {
+    text-align: center;
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #00796b;
+    color: #ffffff;
+    bottom: 0;
+    position: fixed;
+    width: 100%;
+  }
+  
+  body.dark-mode .footer {
+    background-color: #37474f;
+}
