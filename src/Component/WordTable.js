@@ -19,7 +19,7 @@ function WordTable({ words, toggleFavorite, favorites }) {
               <td className="table-cell">{word['뜻']}</td>
               <td className="table-cell">
                 <button onClick={() => toggleFavorite(word)} className="favorite-button">
-                  {favorites.some((fav) => fav.no === word.no) ? '★' : '☆'}
+                  {favorites.some((fav) => fav['단어'] === word['단어']) ? '★' : '☆'}
                 </button>
               </td>
             </tr>

@@ -20,7 +20,7 @@ function Vocabulary() {
             complete: function (results) {
               const updatedWords = results.data.map((word) => ({
                 ...word,
-                isFavorite: favorites.some((fav) => fav.no === word.no),
+                isFavorite: favorites.some((fav) => fav['단어'] === word['단어']),
               }));
               setWords(updatedWords);
             },
@@ -41,8 +41,8 @@ function Vocabulary() {
   
     // 즐겨찾기 토글 기능
     const toggleFavorite = (word) => {
-      const updatedFavorites = favorites.some((fav) => fav.no === word.no)
-        ? favorites.filter((fav) => fav.no !== word.no)
+      const updatedFavorites = favorites.some((fav) => fav['단어'] === word['단어'])
+        ? favorites.filter((fav) => fav['단어'] !== word['단어'])
         : [...favorites, word];
       setFavorites(updatedFavorites);
     };
@@ -55,6 +55,7 @@ function Vocabulary() {
             <li className="nav-item"><Link to="/" className="nav-link">홈</Link></li>
             <li className="nav-item"><Link to="/favorites" className="nav-link">즐겨찾기</Link></li>
             <li className="nav-item"><Link to="/vocabulary" className="nav-link">단어 페이지</Link></li>
+            <li className='nav-item'><Link to='/vocabulary2' className='nav-link'>단어 페이지2</Link></li>
             <li className="nav-item"><Link to="/quiz" className="nav-link">단어 퀴즈</Link></li>
           </ul>
         </nav>
