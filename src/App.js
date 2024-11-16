@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import './App.css';
 import Vocabulary from './Component/Vocabulary';
+import Vocabulary2 from './Component/Vocabulary2';
 import Home from './Component/Home';
 import Quiz from './Component/Quiz';
 import Favorites from './Component/Favorites';
@@ -33,11 +34,12 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/favorites" element={<Favorites />} />
         <Route path="/vocabulary" element={<Vocabulary />} />
+        <Route path="/vocabulary2" element={<Vocabulary2 />} />
         <Route path="/quiz" element={<Quiz />} />
       </Routes>
       <footer className="footer">
-        <img src ={logo} alt='logo' height='60px' width='180px' className='logo'/>
-        <p>© 2024, All rights reserved</p>
+        <a href='https://www.codezero.lol/'><img src ={logo} alt='logo' height='60px' width='180px' className='logo'/></a>
+        <p className='text-bottom'>© 2024, All rights reserved</p>
       </footer>
     </Router>
   );
