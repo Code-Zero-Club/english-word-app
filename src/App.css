@@ -359,6 +359,8 @@ body {
     font-size: 1.2em;
     border-radius: 8px;
     transition: background-color 0.3s;
+    display: block;
+    margin: 0 auto;
   }
   
   .submit-button:hover {

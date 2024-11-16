@@ -7,6 +7,7 @@ import Home from './Component/Home';
 import Quiz from './Component/Quiz';
 import Favorites from './Component/Favorites';
 import logo from './CZ_logo.png';
+import List from './Component/VocabularyList';
 
 function App() {
   const [darkMode, setDarkMode] = useState(() => {
@@ -35,6 +36,7 @@ function App() {
         <Route path="/favorites" element={<Favorites />} />
         <Route path="/vocabulary" element={<Vocabulary />} />
         <Route path="/vocabulary2" element={<Vocabulary2 />} />
+        <Route path="/vocabularyList" element={<List />} />
         <Route path="/quiz" element={<Quiz />} />
       </Routes>
       <footer className="footer">

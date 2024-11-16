@@ -7,9 +7,7 @@ function Home() {
         <nav className="navigation">
           <ul className="nav-list">
             <li className="nav-item"><Link to="/" className="nav-link">홈</Link></li>
-            <li className="nav-item"><Link to="/favorites" className="nav-link">즐겨찾기</Link></li>
-            <li className="nav-item"><Link to="/vocabulary" className="nav-link">단어 페이지</Link></li>
-            <li className='nav-item'><Link to='/vocabulary2' className='nav-link'>단어 페이지2</Link></li>
+            <li className="nav-item"><Link to="/vocabularyList" className="nav-link">단어</Link></li>
             <li className="nav-item"><Link to="/quiz" className="nav-link">단어 퀴즈</Link></li>
           </ul>
         </nav>
