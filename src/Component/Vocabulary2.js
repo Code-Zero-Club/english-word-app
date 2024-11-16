@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import Papa from 'papaparse';
 import { Link } from 'react-router-dom';
-import WordTable from './WordTable';
+import WordTable2 from './WordTable2';
 
-function Vocabulary() {
+function Vocabulary2() {
     const [words, setWords] = useState([]);
     const [query, setQuery] = useState(''); // 검색어 상태
     const [favorites, setFavorites] = useState(() => {
@@ -12,7 +12,7 @@ function Vocabulary() {
     }); // 즐겨찾기 상태
   
     useEffect(() => {
-      fetch('/vocabulary.csv')
+      fetch('/vocabulary2.csv')
         .then((response) => response.text())
         .then((text) => {
           Papa.parse(text, {
@@ -66,7 +66,7 @@ function Vocabulary() {
           onChange={(e) => setQuery(e.target.value)}
           className="search-input"
         />
-        <WordTable
+        <WordTable2
           words={filteredWords}
           toggleFavorite={toggleFavorite}
           favorites={favorites}
@@ -75,4 +75,4 @@ function Vocabulary() {
     );
   }
 
-export default Vocabulary;
+export default Vocabulary2;
