@@ -122,6 +122,25 @@ body {
   body.dark-mode .nav-link:hover {
     color: #80cbc4;
   }
+
+  .nav-link-word {
+    text-decoration: none;
+    color: #004d40;
+    font-size: 1.5em;
+    transition: color 0.3s;
+  }
+
+  .nav-link-word:hover {
+    color: #b2dfdb;
+  }
+
+  body.dark-mode .nav-link-word {
+    color: #ffffff;
+  }
+  
+  body.dark-mode .nav-link-word:hover {
+    color: #80cbc4;
+  }
   
   /* Home Page */
   .home-container {
