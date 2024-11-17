@@ -8,7 +8,7 @@ function Home() {
           <ul className="nav-list">
             <li className="nav-item"><Link to="/" className="nav-link">홈</Link></li>
             <li className="nav-item"><Link to="/vocabularyList" className="nav-link">단어</Link></li>
-            <li className="nav-item"><Link to="/quiz" className="nav-link">단어 퀴즈</Link></li>
+            <li className="nav-item"><Link to="/quizList" className="nav-link">Quiz</Link></li>
           </ul>
         </nav>
         <p className="welcome-message">단어 학습 웹에 오신 것을 환영합니다! 상단의 링크를 통해 다양한 기능을 이용해보세요.</p>

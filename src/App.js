@@ -8,6 +8,8 @@ import Quiz from './Component/Quiz';
 import Favorites from './Component/Favorites';
 import logo from './CZ_logo.png';
 import List from './Component/VocabularyList';
+import Quiz2 from './Component/Quiz2';
+import QuizList from './Component/QuizList';
 
 function App() {
   const [darkMode, setDarkMode] = useState(() => {
@@ -38,6 +40,8 @@ function App() {
         <Route path="/vocabulary2" element={<Vocabulary2 />} />
         <Route path="/vocabularyList" element={<List />} />
         <Route path="/quiz" element={<Quiz />} />
+        <Route path="/quiz2" element={<Quiz2 />} />
+        <Route path="/quizList" element={<QuizList />} />
       </Routes>
       <footer className="footer">
         <a href='https://www.codezero.lol/'><img src ={logo} alt='logo' height='60px' width='180px' className='logo'/></a>

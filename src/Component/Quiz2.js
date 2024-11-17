@@ -3,7 +3,7 @@ import Papa from 'papaparse';
 import { Link } from 'react-router-dom';
 
 
-function Quiz() {
+function Quiz2() {
     const [words, setWords] = useState([]);
     const [currentWord, setCurrentWord] = useState(null);
     const [inputValue, setInputValue] = useState('');
@@ -15,7 +15,7 @@ function Quiz() {
     const inputRef = useRef(null);
   
     useEffect(() => {
-      fetch('/vocabulary.csv')
+      fetch('/vocabulary2.csv')
         .then((response) => response.text())
         .then((text) => {
           Papa.parse(text, {
@@ -163,4 +163,4 @@ function Quiz() {
     );
   }
 
-export default Quiz;
+export default Quiz2;
