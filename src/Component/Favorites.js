@@ -25,7 +25,7 @@ function Favorites() {
   
     return (
       <div className="favorites-container">
-        <h1 className="page-title">즐겨찾기 단어 목록</h1>
+        <h1 className="page-title">즐겨찾기 목록</h1>
         <nav className="navigation">
           <ul className="nav-list">
             <li className="nav-item"><Link to="/" className="nav-link">Home</Link></li>
