@@ -5,6 +5,13 @@
   font-style: normal;
 }
 
+.quiz-message {
+  font-family: 'Danjo-bold-Regular';
+  font-size: 1.2em;
+  text-align: center;
+  color:#ffffff;
+}
+
 .page-title {
   font-family: 'Danjo-bold-Regular';
   font-size: 2.5em;
