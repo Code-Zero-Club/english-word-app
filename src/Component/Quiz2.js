@@ -103,7 +103,7 @@ function Quiz2() {
   
     return (
       <div className="quiz-container">
-        <h1 className="page-title">단어 퀴즈</h1>
+        <h1 className="page-title">Quiz - 2 세트</h1>
         <nav className="navigation">
           <ul className="nav-list">
             <li className="nav-item"><Link to="/" className="nav-link">Home</Link></li>
