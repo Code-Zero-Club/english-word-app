@@ -2,8 +2,6 @@ import React, { useEffect, useState, useRef } from 'react';
 import Papa from 'papaparse';
 import { Link } from 'react-router-dom';
 
-
-
 function Quiz() {
   const [words, setWords] = useState([]);
   const [currentWord, setCurrentWord] = useState(null);
@@ -38,7 +36,7 @@ function Quiz() {
     setUsedWords([]);
     setShowAnswer(false);
     setInputValue('');
-    setQuizType(null);
+    setQuizType(null); // 퀴즈 유형 초기화
   };
 
   const handleStartQuiz = (type) => {
@@ -46,8 +44,9 @@ function Quiz() {
       setQuizType(type);
       setQuizStarted(true);
       const randomIndex = Math.floor(Math.random() * words.length);
-      setCurrentWord(words[randomIndex]);
-      setUsedWords([words[randomIndex].id]);
+      const initialWord = words[randomIndex];
+      setCurrentWord(initialWord);
+      setUsedWords([initialWord.no]);
       setTimeout(() => {
         if (inputRef.current) {
           inputRef.current.focus();
@@ -60,14 +59,14 @@ function Quiz() {
     event.preventDefault();
     const correctAnswer =
       quizType === 'english-to-korean'
-        ? currentWord['뜻']
-        : currentWord['단어'];
+        ? currentWord['뜻'] // 영어 → 한국어
+        : currentWord['단어']; // 한국어 → 영어
 
-    if (inputValue.toLowerCase() === correctAnswer.toLowerCase()) {
-      setScore(score + 1);
+    if (inputValue.trim().toLowerCase() === correctAnswer.trim().toLowerCase()) {
+      setScore((prev) => prev + 1);
       handleNextQuestion();
     } else {
-      setIncorrectAnswers([...incorrectAnswers, currentWord]);
+      setIncorrectAnswers((prev) => [...prev, currentWord]);
       setShowAnswer(true);
     }
     setInputValue('');
@@ -79,15 +78,16 @@ function Quiz() {
       return;
     }
 
-    let randomIndex;
     let nextWord;
+    let randomIndex;
+
     do {
       randomIndex = Math.floor(Math.random() * words.length);
       nextWord = words[randomIndex];
-    } while (usedWords.includes(nextWord.id));
+    } while (usedWords.includes(nextWord.no));
 
     setCurrentWord(nextWord);
-    setUsedWords([...usedWords, nextWord.id]);
+    setUsedWords((prev) => [...prev, nextWord.no]);
     setShowAnswer(false);
     setTimeout(() => {
       if (inputRef.current) {
@@ -111,20 +111,17 @@ function Quiz() {
 
   return (
     <div className="quiz-container">
-      
-        <h1 className="page-title">단어 퀴즈</h1>
-        <nav className="navigation">
-          <ul className="nav-list">
-            <li className="nav-item"><Link to="/" className="nav-link">홈</Link></li>
-            <li className="nav-item"><Link to="/vocabularyList" className="nav-link">단어</Link></li>
-            <li className="nav-item"><Link to="/quiz" className="nav-link">단어 퀴즈</Link></li>
-          </ul>
-        </nav>
-        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
       <h1 className="page-title">단어 퀴즈</h1>
+      <nav className="navigation">
+        <ul className="nav-list">
+          <li className="nav-item"><Link to="/" className="nav-link">홈</Link></li>
+          <li className="nav-item"><Link to="/vocabularyList" className="nav-link">단어</Link></li>
+          <li className="nav-item"><Link to="/quiz" className="nav-link">단어 퀴즈</Link></li>
+        </ul>
+      </nav>
       {!quizStarted ? (
         <div className="quiz-select">
-          <h2>퀴즈 유형을 선택하세요:</h2>
+          <h2 align="center">퀴즈 유형을 선택하세요</h2>
           <button
             onClick={() => handleStartQuiz('english-to-korean')}
             className="submit-button"
@@ -143,8 +140,8 @@ function Quiz() {
         <div className="quiz-content">
           <h2 className="word-prompt">
             {quizType === 'english-to-korean'
-              ? `단어: ${currentWord['단어']}`
-              : `뜻: ${currentWord['뜻']}`}
+              ? `단어: ${currentWord['단어']}` // 영어 → 한국어 문제
+              : `뜻: ${currentWord['뜻']}`} 
           </h2>
           {!showAnswer ? (
             <form onSubmit={handleSubmit} className="quiz-form">
@@ -154,29 +151,23 @@ function Quiz() {
                 onChange={(e) => setInputValue(e.target.value)}
                 placeholder={
                   quizType === 'english-to-korean'
-                    ? '뜻을 입력하세요'
-                    : '단어를 입력하세요'
+                    ? '뜻을 입력하세요' // 영어 → 한국어 입력 필드
+                    : '단어를 입력하세요' // 한국어 → 영어 입력 필드
                 }
                 className="quiz-input"
                 ref={inputRef}
               />
-              <button type="submit" className="submit-button">
-                제출
-              </button>
+              <button type="submit" className="submit-button">제출</button>
             </form>
           ) : (
             <div className="incorrect-answer">
-              <p>
-                틀렸습니다! 정답은:{' '}
-                <strong>
-                  {quizType === 'english-to-korean'
-                    ? currentWord['뜻']
-                    : currentWord['단어']}
-                </strong>
-              </p>
-              <button onClick={handleNextQuestion} className="submit-button">
-                다음
-              </button>
+              <p>틀렸습니다! 정답은: <strong>
+                {quizType === 'english-to-korean'
+                  ? currentWord['뜻'] // 영어 → 한국어 정답
+                  : currentWord['단어'] // 한국어 → 영어 정답
+                }
+              </strong></p>
+              <button onClick={handleNextQuestion} className="submit-button">다음</button>
               <p className="hint">(Enter 키를 눌러서 다음 문제로 이동)</p>
             </div>
           )}
@@ -193,16 +184,14 @@ function Quiz() {
                 {incorrectAnswers.map((word, index) => (
                   <li key={index}>
                     {quizType === 'english-to-korean'
-                      ? `${word['단어']} - ${word['뜻']}`
-                      : `${word['뜻']} - ${word['단어']}`}
+                      ? `${word['단어']} - ${word['뜻']}` // 영어 → 한국어 틀린 문제
+                      : `${word['뜻']} - ${word['단어']}`} // 한국어 → 영어 틀린 문제
                   </li>
                 ))}
               </ul>
             </div>
           )}
-          <button onClick={resetQuiz} className="submit-button">
-            다시 시작
-          </button>
+          <button onClick={resetQuiz} className="submit-button">다시 시작</button>
         </div>
       )}
     </div>
