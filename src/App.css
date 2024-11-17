@@ -377,6 +377,7 @@ body {
   }
   
   .submit-button {
+    font-family: danjo-bold-regular;
     background-color: #00796b;
     color: white;
     border: none;
