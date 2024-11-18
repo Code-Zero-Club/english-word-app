@@ -15,14 +15,14 @@ function Home() {
         <li className="nav-item"><Link to="/Quiz" className="nav-link-word">Home</Link></li>
         <li className="nav-item"><Link to="/Quiz2" className="nav-link-word">Word</Link>
           <ol>
-            <li className="nav-item"><Link to="/Vocabulary" className="nav-link-word">Word - 1세트</Link></li>
-            <li className="nav-item"><Link to="/Vocabulary2" className="nav-link-word">Word - 2세트</Link></li>
+            <li className="nav-item"><Link to="/Vocabulary" className="Home-nav-link-word">Word - 1세트</Link></li>
+            <li className="nav-item"><Link to="/Vocabulary2" className="Home-nav-link-word">Word - 2세트</Link></li>
           </ol>
         </li>
         <li className="nav-item"><Link to="/Quiz2" className="nav-link-word">Quiz</Link>
           <ol>
-              <li className="nav-item"><Link to="/Quiz" className="nav-link-word">Quiz - 1세트</Link></li>
-              <li className="nav-item"><Link to="/Quiz2" className="nav-link-word">Quiz - 2세트</Link></li>
+              <li className="nav-item"><Link to="/Quiz" className="Home-nav-link-word">Quiz - 1세트</Link></li>
+              <li className="nav-item"><Link to="/Quiz2" className="Home-nav-link-word">Quiz - 2세트</Link></li>
           </ol>
         </li>
       </div>
