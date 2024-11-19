@@ -107,7 +107,7 @@ function Quiz() {
     return () => {
       window.removeEventListener('keydown', handleKeyPress);
     };
-  }, [handleKeyPress]);
+  });
 
   return (
     <div className="quiz-container">
@@ -186,7 +186,7 @@ function Quiz() {
                   <li key={index}>
                     {quizType === 'english-to-korean'
                       ? `${word['단어']} - ${word['뜻']}` // 영어 → 한국어 틀린 문제
-                      : `${word['뜻']} - ${word['단어']}`} // 한국어 → 영어 틀린 문제
+                      : `${word['뜻']} - ${word['단어']}`} 
                   </li>
                 ))}
               </ul>
