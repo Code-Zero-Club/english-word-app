@@ -59,10 +59,10 @@ function Quiz() {
     event.preventDefault();
     const correctAnswer =
       quizType === 'english-to-korean'
-        ? currentWord['뜻'] // 영어 → 한국어
-        : currentWord['단어']; // 한국어 → 영어
+        ? currentWord['뜻'].replace(/\s+/g, '') // 영어 → 한국어
+        : currentWord['단어'].replace(/\s+/g, ''); // 한국어 → 영어
 
-    if (inputValue.trim().toLowerCase() === correctAnswer.trim().toLowerCase()) {
+    if (inputValue.trim().replace(/\s+/g, '').toLowerCase() === correctAnswer.trim().toLowerCase()) {
       setScore((prev) => prev + 1);
       handleNextQuestion();
     } else {
@@ -116,7 +116,7 @@ function Quiz() {
         <ul className="nav-list">
           <li className="nav-item"><Link to="/" className="nav-link">Home</Link></li>
           <li className="nav-item"><Link to="/vocabularyList" className="nav-link">Word</Link></li>
-          <li className="nav-item"><Link to="/quiz" className="nav-link">Quiz</Link></li>
+          <li className="nav-item"><Link to="/quizList" className="nav-link">Quiz</Link></li>
         </ul>
       </nav>
       <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
