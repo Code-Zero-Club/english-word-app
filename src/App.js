@@ -4,10 +4,10 @@ import './App.css';
 import Vocabulary from './Component/Vocabulary';
 import Vocabulary2 from './Component/Vocabulary2';
 import Home from './Component/Home';
-import Quiz from './Component/Quiz';
 import Favorites from './Component/Favorites';
 import logo from './CZ_logo.png';
 import List from './Component/VocabularyList';
+import Quiz from './Component/Quiz';
 import Quiz2 from './Component/Quiz2';
 import QuizList from './Component/QuizList';
 
@@ -44,7 +44,7 @@ function App() {
         <Route path="/quizList" element={<QuizList />} />
       </Routes>
       <footer className="footer">
-        <a href='https://www.codezero.lol/'><img src ={logo} alt='logo' height='60px' width='180px' className='logo'/></a>
+        <a href='https://www.codezero.lol/' target="_blank"  rel="noreferrer"><img src ={logo} alt='logo' height='60px' width='180px' className='logo'/></a>
         <p className='text-bottom'>© 2024, All rights reserved</p>
       </footer>
     </Router>
