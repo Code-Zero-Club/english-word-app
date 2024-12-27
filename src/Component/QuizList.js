@@ -8,7 +8,7 @@ function QuizList(){
                 <ul className="nav-list">
                     <li className="nav-item"><Link to="/" className="nav-link">Home</Link></li>
                     <li className="nav-item"><Link to="/vocabularyList" className="nav-link">Word</Link></li>
-                    <li className="nav-item"><Link to="/quiz" className="nav-link">Quiz</Link></li>
+                    <li className="nav-item"><Link to="/quizList" className="nav-link">Quiz</Link></li>
                 </ul>
             </nav>
 
